@@ -1,23 +1,24 @@
 from sys import argv
 from markov_class import *
-from keys import *
-import twitter
+#from keys import *
+#import twitter
 
 script, inputfile = argv
 
 def main():
-    order = int(raw_input("What Markov order would you like to use (1-10)? But try number 2."))
-    handle = raw_input("Please enter a Twitter handle.")
+    order = int(input("What Markov order would you like to use (1-10)? But try number 2."))
+    #handle = input("Please enter a Twitter handle.")
+    textsize = int(input("How many words in the generated text?"))
 
     filetext = process_file()
 
     # The number below is determined upon the maximum length of a tweet minus the maximum
     # length of a handle.
-    markov = MarkovDict(filetext, order, 123)
+    markov = MarkovDict(filetext, order, textsize)
     markov.read_text()
     output = markov.output_text()
-    print output
-    tweet_output(output)
+    print(output)
+    #tweet_output(output)
 
 # prompt to open file
 def process_file():
