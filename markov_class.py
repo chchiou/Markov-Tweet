@@ -50,7 +50,7 @@ class MarkovDict(object):
 # TODO Replace the handle with a twitter handle you would like to send your Markov
 # text to. Also, would be nice to prompt the user for a twitter handle...eventually.
         output_list = list(start_seed)
-        twitter_handle = handle
+        #twitter_handle = handle
 
         while(True):
             if size > self.output_count:
@@ -63,5 +63,6 @@ class MarkovDict(object):
                 size += (1 + len(self.seed_counts[start_seed][random_index]))
                 start_seed = tuple(output_list[-self.order:])
 
-        return twitter_handle + " ".join(output_list)[0:self.output_count]
+        #return twitter_handle + " ".join(output_list)[0:self.output_count]
+        return " ".join(output_list][0:self.output_count]
 
